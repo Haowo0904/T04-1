@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T04 – SVG House & Garden</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #f3f7fb;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .frame {
+        width: min(90vw, 860px);
+        padding: 20px;
+        background: #ffffff;
+        border: 3px solid #c9d7e8;
+        border-radius: 12px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #dff4ff;
+        border: 2px solid #afc7db;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <svg
+        viewBox="0 0 800 500"
+        role="img"
+        aria-labelledby="houseGardenTitle houseGardenDesc"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title id="houseGardenTitle">T04 – SVG House & Garden</title>
+        <desc id="houseGardenDesc">
+          A simple house and garden scene with a sun, cloud, tree, roof, chimney, windows,
+          fence, curved path, and caption text.
+        </desc>
+
+        <rect x="0" y="0" width="800" height="500" fill="#dff4ff" />
+
+        <rect x="0" y="330" width="800" height="170" fill="#8ad27b" />
+
+        <circle cx="680" cy="90" r="42" fill="#ffd75a" />
+
+        <g fill="#ffffff">
+          <circle cx="150" cy="100" r="18" />
+          <circle cx="175" cy="90" r="20" />
+          <circle cx="200" cy="102" r="17" />
+          <circle cx="125" cy="110" r="16" />
+          <ellipse cx="175" cy="118" rx="55" ry="20" fill="#ffffff" />
+        </g>
+
+        <rect x="245" y="150" width="160" height="120" fill="#f5c59c" stroke="#7a4e2d" stroke-width="3" />
+
+        <polygon points="220,150 420,150 320,90" fill="#c75d3d" stroke="#7d2f26" stroke-width="4" />
+
+        <rect x="320" y="110" width="26" height="65" fill="#b96a35" stroke="#7d4b2c" stroke-width="2" />
+
+        <rect x="280" y="198" width="56" height="72" fill="#d68b4d" stroke="#7a4e2d" stroke-width="3" />
+        <rect x="352" y="198" width="32" height="72" fill="#d68b4d" stroke="#7a4e2d" stroke-width="3" />
+
+        <line x1="310" y1="168" x2="310" y2="100" stroke="#9b4f2c" stroke-width="3" />
+        <line x1="310" y1="100" x2="350" y2="100" stroke="#9b4f2c" stroke-width="3" />
+
+        <rect x="260" y="170" width="42" height="42" fill="#bde8ff" stroke="#3b7ca7" stroke-width="2" />
+        <rect x="336" y="170" width="42" height="42" fill="#bde8ff" stroke="#3b7ca7" stroke-width="2" />
+
+        <path d="M 320 220 L 320 270 L 355 270 L 355 220 Z" fill="#9d5b2f" stroke="#5c3119" stroke-width="2" />
+        <circle cx="338" cy="238" r="4" fill="#f7f0d8" />
+
+        <g>
+          <circle cx="530" cy="245" r="34" fill="#669f4e" />
+          <circle cx="565" cy="220" r="30" fill="#6fa35b" />
+          <circle cx="595" cy="250" r="36" fill="#5d8d48" />
+          <rect x="560" y="255" width="18" height="78" fill="#7c4d2d" />
+          <ellipse cx="569" cy="262" rx="50" ry="26" fill="#4f7a35" />
+        </g>
+
+        <g stroke="#6c8d44" stroke-width="4" fill="none" stroke-linecap="round">
+          <polyline points="40,330 80,282 120,330 160,280 200,330 240,290 280,330 320,300 360,330" />
+          <polyline points="380,330 420,280 460,330 500,292 540,330 580,285 620,330 660,300 700,330 760,315" />
+        </g>
+
+        <g stroke="#7b5a3a" stroke-width="4" fill="none">
+          <line x1="60" y1="330" x2="60" y2="385" />
+          <line x1="120" y1="330" x2="120" y2="385" />
+          <line x1="180" y1="330" x2="180" y2="385" />
+          <line x1="240" y1="330" x2="240" y2="385" />
+          <line x1="300" y1="330" x2="300" y2="385" />
+          <line x1="360" y1="330" x2="360" y2="385" />
+          <line x1="420" y1="330" x2="420" y2="385" />
+          <line x1="480" y1="330" x2="480" y2="385" />
+          <line x1="540" y1="330" x2="540" y2="385" />
+          <line x1="600" y1="330" x2="600" y2="385" />
+          <line x1="660" y1="330" x2="660" y2="385" />
+          <line x1="720" y1="330" x2="720" y2="385" />
+        </g>
+
+        <path
+          d="M 20 430 C 180 390, 220 470, 380 430 S 610 380, 780 440"
+          fill="none"
+          stroke="#a06b44"
+          stroke-width="10"
+          stroke-linecap="round"
+        />
+
+        <text x="400" y="470" text-anchor="middle" font-size="26" fill="#2d4a3d" font-family="Arial, Helvetica, sans-serif">
+          T04 – SVG House &amp; Garden
+        </text>
+      </svg>
+    </div>
+  </body>
+</html>
