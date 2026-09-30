@@ -10,6 +10,15 @@
     #scene-annotated #annotations { font-size: 12px; fill: #333; stroke: #999; stroke-width: 1; pointer-events: none; }
     #scene-annotated #annotations text { stroke: none; }
     #scene-annotated #annotations line { fill: none; }
+    /* Step 3 only: stronger outlines and distinct stroke weights. */
+    #scene-adjusted .sky { fill: #80c3e0; }
+    #scene-adjusted .grass { fill: #6bb843; }
+    #scene-adjusted .tree circle { fill: #1d782b; }
+    #scene-adjusted .house-body { stroke: #905126; stroke-width: 4; }
+    #scene-adjusted .roof { stroke: #850e0e; stroke-width: 4.5; }
+    #scene-adjusted .windows { stroke: #376980; stroke-width: 2; }
+    #scene-adjusted .fence { stroke: #805027; stroke-width: 3; stroke-dasharray: 10 6; }
+    #scene-adjusted .footpath { stroke-linecap: round; }
   </style>
 </head>
 <body>
@@ -170,6 +179,77 @@
     </g>
   </svg>
     <figcaption>Annotated scene (Step 2)</figcaption>
+  </figure>
+  <figure id="scene-adjusted-figure">
+  <svg id="scene-adjusted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="scene-adjusted-title scene-adjusted-desc">
+    <title id="scene-adjusted-title">House and Garden</title>
+    <desc id="scene-adjusted-desc">A sunny garden with a cloud, a tree, and a cream house with a red roof, chimney, door, and two blue windows. A dashed brown fence borders the house, and a curved stone footpath with a small mailbox leads to its door. Subtle smoke rises from the chimney.</desc>
+
+    <!-- Sky and grass -->
+    <rect class="sky" width="800" height="500" fill="#87cee5" />
+    <rect class="grass" y="250" width="800" height="250" fill="#7fc64b" />
+
+    <!-- Sun and cloud -->
+    <circle cx="100" cy="100" r="40" fill="#ffe36b" stroke="#ffd700" stroke-width="4" />
+    <ellipse cx="220" cy="90" rx="40" ry="25" fill="#f2fbff" />
+    <circle cx="200" cy="90" r="20" fill="white" />
+    <circle cx="240" cy="90" r="19" fill="white" />
+
+    <!-- Shift the tree slightly left to balance the house. -->
+    <g class="tree" transform="translate(-30 0)">
+      <rect x="650" y="295" width="20" height="65" fill="#8b5a2b" />
+      <circle cx="660" cy="290" r="35" fill="#228b22" />
+    </g>
+
+    <!-- Move the complete house, including windows and smoke, 20 units right. -->
+    <g transform="translate(20 0)">
+      <!-- House, roof, chimney, and smoke -->
+      <rect class="house-body" x="320" y="220" width="160" height="120" fill="#ffe5b5" stroke="#c77822" stroke-width="3" />
+      <polygon class="roof" points="300,220 400,150 500,220" fill="#b22222" stroke="#8b0000" stroke-width="3" />
+      <rect x="440" y="160" width="20" height="40" fill="#a0522d" stroke="#936331" stroke-width="2" />
+      <!-- Soft, fading ellipses form a subtle chimney puff. -->
+      <g class="smoke" fill="#e2edf0" opacity="0.7">
+        <ellipse cx="450" cy="150" rx="10" ry="6" opacity="0.85" />
+        <ellipse cx="455" cy="140" rx="7" ry="4" opacity="0.65" />
+        <ellipse cx="460" cy="130" rx="5" ry="3" opacity="0.45" />
+      </g>
+  
+      <!-- Door and two windows with line-shaped panes -->
+      <rect x="385" y="280" width="30" height="60" fill="#deb887" stroke="#8b5a2b" stroke-width="2" />
+      <circle cx="410" cy="310" r="4" fill="#8b5a2b" />
+      <g class="windows" fill="#a6d8ee" stroke="#508ab0" stroke-width="2">
+        <rect x="340" y="240" width="35" height="30" />
+        <line x1="357.5" y1="240" x2="357.5" y2="270" />
+        <line x1="340" y1="255" x2="375" y2="255" />
+        <rect x="430" y="240" width="35" height="30" />
+        <line x1="447.5" y1="240" x2="447.5" y2="270" />
+        <line x1="430" y1="255" x2="465" y2="255" />
+      </g>
+    </g>
+
+    <!-- The stone footpath starts at the translated door center (420,340). -->
+    <path class="footpath" d="M 420 340 C 442 380, 397 420, 405 440" fill="none" stroke="#d8c39f" stroke-width="10" />
+    <g fill="#e6e4d8" stroke="#8b8979" stroke-width="0.75">
+      <ellipse cx="424" cy="355" rx="10" ry="6" />
+      <ellipse cx="424" cy="370" rx="9" ry="6" />
+      <ellipse cx="417" cy="390" rx="10" ry="7" />
+      <ellipse cx="408" cy="410" rx="9" ry="6" />
+      <ellipse cx="404" cy="430" rx="8" ry="5" />
+    </g>
+
+    <!-- A darker dashed stroke distinguishes the fence from the lawn. -->
+    <polyline class="fence" points="200,380 200,340 220,330 240,340 240,380 240,340 260,330 280,340 280,380 280,340 300,330 320,340 320,380 320,340 340,330 360,340 360,380 360,340 380,330 400,340 400,380 400,340 420,330 440,340 440,380 440,340 460,330 480,340 480,380 480,340 500,330 520,340 520,380 520,340 540,330 560,340 560,380" fill="none" stroke="#fff8dc" stroke-width="6" />
+
+    <!-- Reposition the mailbox beside the path and add a small pitched cap. -->
+    <g transform="translate(215 0)">
+      <rect x="182" y="350" width="8" height="20" fill="#704321" />
+      <rect x="177" y="330" width="18" height="22" rx="2" fill="#d5e4ed" stroke="#304958" stroke-width="2" />
+      <polygon points="175,330 186,323 197,330" fill="#7598ae" stroke="#304958" stroke-width="1.5" />
+      <text x="186" y="344" text-anchor="middle" font-size="6" fill="#203340">MAIL</text>
+    </g>
+    <text x="400" y="490" text-anchor="middle" font-size="24" fill="#303030">Welcome to the House &amp; Garden</text>
+  </svg>
+    <figcaption>Adjusted scene (Step 3)</figcaption>
   </figure>
 </body>
 </html>
